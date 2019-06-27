@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SimpleFireBallShootSound.wav-68d15b4755539094c8ad2a9c1d06ddad.sample"
+
+[deps]
+
+source_file="res://Audio/Sound/SimpleFireBallShootSound.wav"
+dest_files=[ "res://.import/SimpleFireBallShootSound.wav-68d15b4755539094c8ad2a9c1d06ddad.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

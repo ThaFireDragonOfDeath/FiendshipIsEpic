@@ -1,0 +1,34 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/d7hvbg0-ad5d13a4-ca3a-46a2-8b48-5a1e329445ac.png-96b1497ef5e41ab4f6c0474a9a6f1f1f.stex"
+metadata={
+"vram_texture": false
+}
+
+[deps]
+
+source_file="res://Characters/Tirek/Base/d7hvbg0-ad5d13a4-ca3a-46a2-8b48-5a1e329445ac.png"
+dest_files=[ "res://.import/d7hvbg0-ad5d13a4-ca3a-46a2-8b48-5a1e329445ac.png-96b1497ef5e41ab4f6c0474a9a6f1f1f.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/bptc_ldr=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+process/invert_color=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SimpleArrowShotSound.wav-6f3f09ac8970c04fcf1c9e826a4183c9.sample"
+
+[deps]
+
+source_file="res://Audio/Sound/SimpleArrowShotSound.wav"
+dest_files=[ "res://.import/SimpleArrowShotSound.wav-6f3f09ac8970c04fcf1c9e826a4183c9.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

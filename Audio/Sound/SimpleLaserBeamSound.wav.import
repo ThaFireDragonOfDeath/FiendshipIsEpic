@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SimpleLaserBeamSound.wav-6d436a3153a065de46ee8b1aab04eef3.sample"
+
+[deps]
+
+source_file="res://Audio/Sound/SimpleLaserBeamSound.wav"
+dest_files=[ "res://.import/SimpleLaserBeamSound.wav-6d436a3153a065de46ee8b1aab04eef3.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

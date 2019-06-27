@@ -1,0 +1,57 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Scenes/Enemy/Gargoyle.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Gargoyle/Sprites/Flying/Flying.0000.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Gargoyle/Sprites/Flying/Flying.0001.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Gargoyle/Sprites/Flying/Flying.0002.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Gargoyle/Sprites/Flying/Flying.0003.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Gargoyle/Sprites/Flying/Flying.0004.png" type="Texture" id=6]
+[ext_resource path="res://Characters/Gargoyle/Sprites/Flying/Flying.0005.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Flying",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 167.569
+height = 98.673
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 92.4088
+height = 339.967
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 241.442, 77.9172 )
+
+[node name="Gargoyle" type="Area2D"]
+monitoring = false
+monitorable = false
+script = ExtResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 148.076, -88.1861 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 107.65, 317.591 )
+rotation = 0.244346
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 273.881, -341.765 )
+rotation = 0.506145
+shape = SubResource( 4 )
+

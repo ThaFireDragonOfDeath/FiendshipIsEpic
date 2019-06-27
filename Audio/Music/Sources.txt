@@ -1,0 +1,11 @@
+Level-01-Boss.wav: 
+Derived from: ./Base/makai-symphony-dragon-slayer.mp3
+Read ./Base/Sources.txt for more informations
+
+Level-01.wav: 
+Derived from: ./Base/alexander-nakarada-near-end-action.mp3
+Read ./Base/Sources.txt for more informations
+
+MainMenu.wav: 
+Derived from: ./Base/serge-narcissoff-born-in-darkness.wav
+Read ./Base/Sources.txt for more informations

@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="Intro" type="Node2D"]
+
+[node name="VideoPlayer" type="VideoPlayer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+

@@ -1,0 +1,65 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Scenes/Player/Sombra.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Sombra/Sprites/Flying/Flying.0000.png" type="Texture" id=2]
+[ext_resource path="res://Characters/Sombra/Sprites/Flying/Flying.0001.png" type="Texture" id=3]
+[ext_resource path="res://Characters/Sombra/Sprites/Flying/Flying.0002.png" type="Texture" id=4]
+[ext_resource path="res://Characters/Sombra/Sprites/Flying/Flying.0003.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Sombra/Sprites/Flying/Flying.0004.png" type="Texture" id=6]
+[ext_resource path="res://Characters/Sombra/Sprites/Flying/Flying.0005.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Flying",
+"speed": 18.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 263.732, 91.8313 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 85.6154, 73.0874 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 136.576, 148.195 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 84.9988, 233.948 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 74.4724, 239.211 )
+
+[node name="Sombra" type="Area2D"]
+scale = Vector2( 0.09, 0.09 )
+gravity = 0.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Flying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16.0034, -21.0641 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 199.383, -171.107 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( 253.686, -354.173 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2( -184.21, 315.789 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2( 152.632, 310.526 )
+shape = SubResource( 6 )
+

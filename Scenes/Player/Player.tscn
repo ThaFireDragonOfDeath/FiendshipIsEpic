@@ -1,0 +1,124 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Player/PlayerInput.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Weapons/Generic/Explosion/Sprites/Explosion/Explosion.0000.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Player/Chrysalis.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Player/Sombra.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Player/Tirek.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Audio/Sound/SimplePlayerHitSound.wav" type="AudioStream" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": false,
+"name": "LvlUp",
+"speed": 0.0
+} ]
+
+[sub_resource type="Animation" id=2]
+resource_name = "LvlUp"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("LvlUp:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.1, 0.1 ), Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("LvlUp:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0.117647 ), Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0.313726 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "PlayerDespawn"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Chrysalis:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[node name="Player" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="PlayerInput" parent="." instance=ExtResource( 2 )]
+pause_mode = 2
+
+[node name="LvlUp" type="AnimatedSprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.1, 0.1 )
+frames = SubResource( 1 )
+animation = "LvlUp"
+
+[node name="Chrysalis" parent="." instance=ExtResource( 4 )]
+visible = false
+scale = Vector2( 0.15, 0.15 )
+monitoring = false
+monitorable = false
+
+[node name="Sombra" parent="." instance=ExtResource( 5 )]
+visible = false
+scale = Vector2( 0.13, 0.13 )
+monitoring = false
+monitorable = false
+
+[node name="Tirek" parent="." instance=ExtResource( 6 )]
+visible = false
+scale = Vector2( 0.15, 0.15 )
+monitoring = false
+monitorable = false
+
+[node name="ShootReload" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="ShootLvlUp" type="Timer" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/LvlUp = SubResource( 2 )
+anims/PlayerDespawn = SubResource( 3 )
+
+[node name="SelfDelete" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="LvlUpSound" type="AudioStreamPlayer" parent="."]
+bus = "Sound"
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+bus = "Sound"
+
+[node name="AutoEnergy" type="Timer" parent="."]
+wait_time = 8.0
+autostart = true
+
+[connection signal="area_entered" from="Chrysalis" to="." method="_on_Player_area_entered"]
+[connection signal="area_entered" from="Sombra" to="." method="_on_Player_area_entered"]
+[connection signal="area_entered" from="Tirek" to="." method="_on_Player_area_entered"]
+[connection signal="timeout" from="ShootReload" to="." method="_on_ShootReload_timeout"]
+[connection signal="timeout" from="ShootLvlUp" to="." method="_on_ShootLvlUp_timeout"]
+[connection signal="timeout" from="SelfDelete" to="." method="_on_SelfDelete_timeout"]
+[connection signal="timeout" from="AutoEnergy" to="." method="_on_AutoEnergy_timeout"]

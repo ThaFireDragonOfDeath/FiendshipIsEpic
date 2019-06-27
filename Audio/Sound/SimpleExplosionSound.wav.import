@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SimpleExplosionSound.wav-2ec89a1a0fa55b37eb84d0a7ff65635a.sample"
+
+[deps]
+
+source_file="res://Audio/Sound/SimpleExplosionSound.wav"
+dest_files=[ "res://.import/SimpleExplosionSound.wav-2ec89a1a0fa55b37eb84d0a7ff65635a.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

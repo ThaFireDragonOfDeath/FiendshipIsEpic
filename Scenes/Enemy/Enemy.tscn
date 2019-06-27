@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Enemy/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Enemy/Gargoyle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Enemy/Scorpan.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Enemy/Centaur.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "MoveIn"
+length = 1.5
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="NextShoot" type="Timer" parent="."]
+one_shot = true
+
+[node name="Gargoyle" parent="." instance=ExtResource( 2 )]
+visible = false
+scale = Vector2( -0.13, 0.13 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="Gargoyle"]
+position = Vector2( 4.21287, -5.49873 )
+scale = Vector2( 172.845, 84.6114 )
+
+[node name="Scorpan" parent="." instance=ExtResource( 3 )]
+visible = false
+scale = Vector2( -0.14, 0.14 )
+
+[node name="VisibilityNotifier2D2" type="VisibilityNotifier2D" parent="Scorpan"]
+position = Vector2( 61.6086, 0.665924 )
+scale = Vector2( 154.564, 84.2075 )
+
+[node name="Centaur" parent="." instance=ExtResource( 4 )]
+visible = false
+scale = Vector2( -0.15, 0.15 )
+
+[node name="VisibilityNotifier2D3" type="VisibilityNotifier2D" parent="Centaur"]
+position = Vector2( -38.9405, 135.61 )
+scale = Vector2( 103.426, 68.6614 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/MoveIn = SubResource( 1 )
+
+[node name="EnemySound" type="AudioStreamPlayer" parent="."]
+bus = "Sound"
+
+[node name="EnemyRemove" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[connection signal="timeout" from="NextShoot" to="." method="_on_NextShoot_timeout"]
+[connection signal="area_entered" from="Gargoyle" to="." method="_on_Enemy_area_entered"]
+[connection signal="screen_exited" from="Gargoyle/VisibilityNotifier2D" to="." method="_on_Enemy_screen_exited"]
+[connection signal="area_entered" from="Scorpan" to="." method="_on_Enemy_area_entered"]
+[connection signal="screen_exited" from="Scorpan/VisibilityNotifier2D2" to="." method="_on_Enemy_screen_exited"]
+[connection signal="area_entered" from="Centaur" to="." method="_on_Enemy_area_entered"]
+[connection signal="screen_exited" from="Centaur/VisibilityNotifier2D3" to="." method="_on_Enemy_screen_exited"]
+[connection signal="timeout" from="EnemyRemove" to="." method="_on_EnemyRemove_timeout"]
